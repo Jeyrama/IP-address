@@ -33,3 +33,15 @@ function isValidIP(str) {
 }
 
 // or
+
+function isValidIP(str) {
+  const splitted = str.split(".");
+  if (splitted?.length !== 4) return false;
+  for (const split of splitted) {
+    const numSplit = Number(split);
+    if (isNaN(numSplit)) return false;
+    if (numSplit.toString() !== split) return false;
+    if (numSplit < 0 || numSplit > 255) return false;
+  }
+  return true;
+}
